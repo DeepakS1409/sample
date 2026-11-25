@@ -20,22 +20,23 @@
    ========================================================================== */
 const INVITATION_CONFIG = {
   // Birthday Person
-  personName: "Princess Sophia",
-  signature: "With all my love & hugs, Sophia 💕",
+  personName: "Akshitha K",
+  birthdayMilestone: "18th Birthday",
+  signature: "With all my love & hugs, Akshitha 💕",
 
   // Date & Time
-  dateDisplay: "Saturday, Dec 19, 2026",
+  dateDisplay: "Thursday, Jan 21, 2027",
   timeDisplay: "5:00 PM – 9:00 PM",
   
   // Target date for countdown (Local Time)
-  targetDate: new Date("2026-12-19T17:00:00"),
+  targetDate: new Date("2027-01-21T17:00:00"),
 
   // Location
   venueName: "Fairytale Blossom Villa, Rose Garden",
   venueAddress: "123 Blossom Lane, Wonderland Park",
 
   // Personalized Message
-  personalMessage: "Your smile and presence bring so much warmth. Having you by my side as I turn another year wiser, happier and wilder means the absolute world to me. Come ready for delicious treats, games, music, and endless photos!",
+  personalMessage: "Your smile and presence bring so much warmth! Having you by my side as I celebrate my milestone 18th Birthday means the absolute world to me. Come ready for delicious treats, games, music, and endless photos & laughter!",
 
   // LocalStorage Keys
   STORAGE_KEY_RSVP: "birthday_invitation_rsvp_v1",
@@ -793,11 +794,11 @@ function toggleMusic() {
    12. EXTERNAL CALENDAR & MAP HELPERS
    ========================================================================== */
 function openGoogleCalendar() {
-  // Format target date for Google Calendar ISO
-  const startISO = "20261219T113000Z"; // approximate UTC equivalent
-  const endISO = "20261219T153000Z";
+  // Format target date for Google Calendar ISO (Jan 21, 2027)
+  const startISO = "20270121T113000Z"; // approximate UTC equivalent
+  const endISO = "20270121T153000Z";
   
-  const title = encodeURIComponent(`${INVITATION_CONFIG.personName}'s Birthday Party! 🎉`);
+  const title = encodeURIComponent(`${INVITATION_CONFIG.personName}'s 18th Birthday Party! 🎉🎂`);
   const details = encodeURIComponent(INVITATION_CONFIG.personalMessage);
   const location = encodeURIComponent(`${INVITATION_CONFIG.venueName}, ${INVITATION_CONFIG.venueAddress}`);
 
@@ -816,7 +817,11 @@ function openVenueDirections() {
    ========================================================================== */
 function init() {
   // Populate config texts
-  if (DOM.confPerson) DOM.confPerson.textContent = INVITATION_CONFIG.personName;
+  if (DOM.confPerson) {
+    DOM.confPerson.textContent = INVITATION_CONFIG.birthdayMilestone 
+      ? `${INVITATION_CONFIG.personName} (${INVITATION_CONFIG.birthdayMilestone})` 
+      : INVITATION_CONFIG.personName;
+  }
   if (DOM.confDate) DOM.confDate.textContent = INVITATION_CONFIG.dateDisplay;
   if (DOM.confTime) DOM.confTime.textContent = INVITATION_CONFIG.timeDisplay;
   if (DOM.confVenue) DOM.confVenue.textContent = INVITATION_CONFIG.venueName;
